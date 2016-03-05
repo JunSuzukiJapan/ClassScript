@@ -17,11 +17,11 @@ class Main {
         const dist_filename = argv[3]
         const instream = new FileInputStream(filename)
         const parser = new Parser(instream)
-        const node = parser.parse()
+        const root = parser.parse()
 
         const outstream = new FileOutputStream(dist_filename)
         try {
-          node.compile(outstream)
+          root.compile(outstream)
         }finally{
           outstream.close()
         }
