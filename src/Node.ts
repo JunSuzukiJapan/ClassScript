@@ -1,5 +1,7 @@
+import { OutputStream } from './OutputStream'
+
 export interface Node {
-    compile(): void
+    compile(output: OutputStream): void
     execute(): void
 }
 
@@ -10,11 +12,10 @@ export class NodeChar implements Node {
         this.character = ch
     }
 
-    compile(){
-        console.log('<NodeChar: "' + this.character + '" >')
+    compile(output: OutputStream){
+        output.puts('<NodeChar: "' + this.character + '" >')
     }
 
     execute(){
     }
 }
-

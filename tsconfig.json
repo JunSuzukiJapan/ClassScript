@@ -15,6 +15,9 @@
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "dist"
     },
+    "filesGlob": [
+      "./src/**/*.ts"
+    ],
     "exclude": [
         "node_modules",
         "typings/browser",
