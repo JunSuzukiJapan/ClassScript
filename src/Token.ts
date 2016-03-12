@@ -1,5 +1,6 @@
 export enum TokenType {
-  NONE,
+  EOS, // end of stream
+  EOL, // end of line
   NUMBER,
   STRING,
   INTEGER,
@@ -47,7 +48,7 @@ export enum TokenType {
   LET,
   CONST,
   VOID,
-  
+
   SEMI,
   COLON,
   COMMA,
@@ -64,6 +65,11 @@ export enum TokenType {
   LE,     // '<=' less equal
   AND,
   OR,
+  PLUS,
+  MINUS,
+  TIMES,
+  DIVIDE,
+  MOD,
 }
 
 export class Token {
@@ -73,5 +79,14 @@ export class Token {
   constructor(text: string, tokenType: TokenType){
     this.text = text
     this.tokenType = tokenType
+  }
+}
+
+export class TokenInteger extends Token {
+  num: number
+
+  constructor(num: number){
+    super(num.toString(), TokenType.INTEGER)
+    this.num = num
   }
 }

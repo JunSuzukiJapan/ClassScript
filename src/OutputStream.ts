@@ -30,7 +30,11 @@ export class FileOutputStream implements OutputStream {
   }
 
   put_indent(){
-    const s = "  ".repeat(this.current_indent)
+    //const s = "  ".repeat(this.current_indent)
+    var s = ""
+    for(var i = 0; i < this.current_indent; i++){
+      s += "  "
+    }
     this.fout.puts(s)
   }
 
