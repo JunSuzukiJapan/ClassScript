@@ -10,7 +10,7 @@ describe('Lexer', function(){
     beforeEach(function(){
       input = new StringInputStream('123');
       lexer = new Lexer(input);
-      token = lexer.getToken();
+      token = lexer.token();
     });
 
     describe('#lexDigit', function(){
@@ -34,14 +34,14 @@ describe('Lexer', function(){
     beforeEach(function(){
       input = new StringInputStream('+');
       lexer = new Lexer(input);
-      token = lexer.getToken();
+      token = lexer.token();
     });
 
-    describe('#getToken "+"', function(){
+    describe('#token "+"', function(){
       it('should return TokenType.PLUS', function(){
         token.tokenType.should.equal(TokenType.PLUS);
       });
-    });    
+    });
   });
 
 });

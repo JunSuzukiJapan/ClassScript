@@ -1,8 +1,43 @@
 import { OutputStream } from './OutputStream'
+import {TokenType} from './Token'
 
 export interface Node {
     compile(output: OutputStream): void
-    execute(): void
+
+}
+
+export class NodeProgram implements Node {
+  compile(output: OutputStream): void {
+    // TODO
+  }
+}
+
+export class NodeInteger implements Node {
+  num: number
+
+  constructor(num: number){
+    this.num = num
+  }
+
+  compile(output: OutputStream): void {
+    // TODO
+  }
+}
+
+export class NodeBinExpr implements Node {
+  op: TokenType
+  nodeLeft: Node
+  nodeRight: Node
+
+  constructor(op, left, right){
+    this.op = op
+    this.nodeLeft = left
+    this.nodeRight = right
+  }
+
+  compile(output: OutputStream){
+    // TODO
+  }
 }
 
 export class NodeChar implements Node {
@@ -14,8 +49,5 @@ export class NodeChar implements Node {
 
     compile(output: OutputStream){
         output.puts('<NodeChar: "' + this.character + '" >')
-    }
-
-    execute(){
     }
 }

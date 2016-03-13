@@ -12,11 +12,20 @@ export default class Lexer {
     this.input = instream
   }
 
+  protected skipWhitespaces(){
+    var ch = this.input.peekChar()
+    while(ch == ' ' || ch == '\t'){
+      this.input.getChar()
+      ch = this.input.peekChar()
+    }
+  }
+
   public advance(): boolean {
+    this.skipWhitespaces()
     return this.input.advance()
   }
 
-  public getToken(): Token {
+  public token(): Token {
     const ch = this.input.getChar()
     switch(ch){
       case ';':

@@ -2,6 +2,7 @@
 
 import {FileInputStream} from './InputStream'
 import {FileOutputStream} from './OutputStream'
+import Lexer from './Lexer'
 import Parser from './Parser'
 
 class Main {
@@ -16,7 +17,8 @@ class Main {
         const filename = argv[2]
         const dist_filename = argv[3]
         const instream = new FileInputStream(filename)
-        const parser = new Parser(instream)
+        const lexer = new Lexer(instream)
+        const parser = new Parser(lexer)
         const root = parser.parse()
 
         const outstream = new FileOutputStream(dist_filename)

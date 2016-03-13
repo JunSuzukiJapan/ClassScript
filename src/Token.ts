@@ -63,8 +63,8 @@ export enum TokenType {
   GE,     // '>=' greater equal
   LT,     // '<' less than
   LE,     // '<=' less equal
-  AND,
-  OR,
+  AND,    // '&&'
+  OR,     // '||'
   PLUS,
   MINUS,
   TIMES,
